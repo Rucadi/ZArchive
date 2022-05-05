@@ -2,11 +2,12 @@
 #include <cstring>
 #include <unordered_map>
 #include <boost/unordered_map.hpp>
-#include <fuse.h>
 #include <memory>
-#include "zarchivereader.h"
+#include "zarchive/zarchivereader.h"
 
 #define FUSE_USE_VERSION 26
+#include <fuse.h>
+
 #define _FILE_OFFSET_BITS 64
 
 using namespace std;

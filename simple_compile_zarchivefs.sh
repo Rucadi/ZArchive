@@ -1,0 +1,1 @@
+g++ -D_FILE_OFFSET_BITS=64 src/zarchivefs.cpp src/sha_256.c src/zarchivereader.cpp -I include -lzstd -lfuse -std=c++2a -g   
