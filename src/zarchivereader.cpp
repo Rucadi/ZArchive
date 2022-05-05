@@ -182,6 +182,21 @@ uint32_t ZArchiveReader::GetDirEntryCount(ZArchiveNodeHandle nodeHandle) const
 	return entry.directoryRecord.count;
 }
 
+std::string_view ZArchiveReader::GetName(ZArchiveNodeHandle nodeHandle) const
+{
+	if (nodeHandle >= m_fileTree.size())
+		return "";
+	auto& entry = m_fileTree.at(nodeHandle);
+	return GetName(m_nameTable, entry.GetNameOffset());
+}
+
+ZArchiveNodeHandle ZArchiveReader::GetNodeEntryIndex(ZArchiveNodeHandle nodeHandle, uint32_t index) const 
+{
+	auto& dir = m_fileTree.at(nodeHandle);
+	return dir.directoryRecord.nodeStartIndex + index;
+}
+
+
 bool ZArchiveReader::GetDirEntry(ZArchiveNodeHandle nodeHandle, uint32_t index, DirEntry& dirEntry) const
 {
 	if (nodeHandle >= m_fileTree.size())

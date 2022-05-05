@@ -34,9 +34,12 @@ public:
 	bool IsDirectory(ZArchiveNodeHandle nodeHandle) const;
 	bool IsFile(ZArchiveNodeHandle nodeHandle) const;
 
+
 	// directory operations
 	uint32_t GetDirEntryCount(ZArchiveNodeHandle nodeHandle) const;
 	bool GetDirEntry(ZArchiveNodeHandle nodeHandle, uint32_t index, DirEntry& dirEntry) const;
+	ZArchiveNodeHandle GetNodeEntryIndex(ZArchiveNodeHandle nodeHandle, uint32_t index) const ;
+	std::string_view GetName(ZArchiveNodeHandle nodeHandle) const;
 
 	// file operations
 	uint64_t GetFileSize(ZArchiveNodeHandle nodeHandle);
